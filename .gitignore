@@ -1,0 +1,51 @@
+# Dependencies
+node_modules/
+
+# Production builds
+dist/
+build/
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Logs
+npm-debug.log*
+*.log
+
+# Coverage directory
+coverage/
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Temporary folders
+tmp/
+temp/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Editor files
+.cursor/
+
+# Cloudflare Workers
+.dev.vars
+.wrangler/
+
+# Database files (local development)
+*.db
+*.sqlite
+
+# TypeScript
+*.tsbuildinfo
+
+# Vite
+.vite/
