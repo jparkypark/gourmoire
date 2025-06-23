@@ -1,7 +1,7 @@
 {
   "name": "gourmoire",
   "version": "1.0.0",
-  "description": "A personal recipe web application",
+  "description": "A magical collection of recipes full of flavor and whimsy",
   "private": true,
   "workspaces": [
     "frontend",
@@ -15,9 +15,9 @@
     "type-check": "npm run type-check --workspace=frontend && npm run type-check --workspace=backend"
   },
   "devDependencies": {
-    "typescript": "^5.2.2"
+    "typescript": "^5.8.3"
   },
   "engines": {
-    "node": ">=18.0.0"
+    "node": ">=24.2.0"
   }
 }

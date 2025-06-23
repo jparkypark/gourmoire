@@ -73,6 +73,12 @@ npm run lint
 - Responsive design
 - Simple authentication
 
+## Planning Documents
+
+- **[PHASES.md](./PHASES.md)** - Development phases and progress tracking
+- **[EPICS.md](./EPICS.md)** - High-level feature specifications and requirements
+- **[STORIES.md](./STORIES.md)** - User stories with acceptance criteria
+
 ## Current Phase
 
 See [PHASES.md](./PHASES.md) for development progress tracking.
