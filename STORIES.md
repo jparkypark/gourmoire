@@ -4,10 +4,10 @@
 
 **Current Release Progress**: See **[ROADMAP.md](./ROADMAP.md)** for V1.0 vs V1.1 story breakdown.
 
-**Overall Progress**: 2/15 total stories completed (13%)
+**Overall Progress**: 2/18 total stories completed (11%)
 
 ```
-████████████████████████████████████████████████████████████ 13%
+██████████████████████████████████████████████████████████ 11%
 0    10    20    30    40    50    60    70    80    90    100
 ```
 
@@ -202,6 +202,55 @@ This document contains all user stories for Gourmoire V1, organized by epic. Eac
 
 ---
 
+## Epic: Platform Foundation
+
+**Stories**: PF-01, PF-02, PF-03
+
+### 📋 PF-01: Testing Infrastructure
+**Status**: 📋 Not Started | **Progress**: 0/5 tasks completed
+**Epic**: Platform Foundation  
+**Story**: As a developer, I want comprehensive testing infrastructure so I can develop with confidence and prevent regressions  
+**Acceptance Criteria**:
+- Frontend component testing with Vitest and React Testing Library
+- Backend API testing with proper test database setup
+- Integration tests for authentication and recipe workflows
+- **Retroactive test coverage for completed authentication system**
+- Test coverage reporting and quality gates
+- Automated test running in development workflow
+- Clear testing patterns and documentation for maintainability
+
+**Estimate**: Large
+
+### 📋 PF-02: Development Automation
+**Status**: 📋 Not Started | **Progress**: 0/4 tasks completed
+**Epic**: Platform Foundation  
+**Story**: As a developer, I want automated quality checks and deployment so I can maintain code quality consistently  
+**Acceptance Criteria**:
+- CI/CD pipeline with automated testing on every commit
+- Pre-commit hooks for linting, type checking, and basic tests
+- Automated deployment to staging environment
+- Dependency vulnerability scanning and security checks
+- Code quality metrics and reporting
+- Deployment rollback capabilities
+
+**Estimate**: Large
+
+### 📋 PF-03: Production Readiness
+**Status**: 📋 Not Started | **Progress**: 0/4 tasks completed
+**Epic**: Platform Foundation  
+**Story**: As a developer, I want secure, monitored production deployment so the app is enterprise-ready  
+**Acceptance Criteria**:
+- Proper secret management (remove hardcoded JWT secrets)
+- Structured logging with error tracking and monitoring
+- Performance monitoring and observability tools
+- Production deployment automation with health checks
+- Database backup and recovery procedures
+- Security scanning and compliance validation
+
+**Estimate**: Large
+
+---
+
 ## Epic: User Interface
 
 ### UI-01: Responsive Design
@@ -260,17 +309,18 @@ This document contains all user stories for Gourmoire V1, organized by epic. Eac
 
 ## Story Summary
 
-**Total Stories**: 15  
+**Total Stories**: 18  
 **By Epic**:
 - Recipe Management: 4 stories
 - Search & Discovery: 5 stories  
 - Daily Usage: 2 stories
+- Platform Foundation: 3 stories
 - User Interface: 2 stories
 - Authentication: 2 stories
 
 **By Estimate**:
 - Small: 3 stories
 - Medium: 7 stories
-- Large: 5 stories
+- Large: 8 stories
 
 **Next Step**: Break down stories into technical tasks in TASKS.md
