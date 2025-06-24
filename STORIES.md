@@ -4,10 +4,10 @@
 
 **Current Release Progress**: See **[ROADMAP.md](./ROADMAP.md)** for V1.0 vs V1.1 story breakdown.
 
-**Overall Progress**: 0/15 total stories completed (0%)
+**Overall Progress**: 1/15 total stories completed (7%)
 
 ```
-██████████████████████████████████████████████████████████████ 0%
+████████████████████████████████████████████████████████████ 7%
 0    10    20    30    40    50    60    70    80    90    100
 ```
 
@@ -232,15 +232,15 @@ This document contains all user stories for Gourmoire V1, organized by epic. Eac
 
 ## Epic: Authentication
 
-### AU-01: User Login
-**Epic**: Authentication  
+### ✅ AU-01: User Login
+**Status**: ✅ Completed | **Epic**: Authentication  
 **Story**: As a user, I want to securely access my recipe collection  
-**Acceptance Criteria**:
-- Login form with username and password fields
-- JWT token-based authentication with 24-hour expiration
-- "Remember me" option extends session to 30 days
-- Failed login attempts show helpful error messages
-- Secure password handling with proper validation
+**Acceptance Criteria**: ✅ All criteria met
+- ✅ Login form with username and password fields
+- ✅ JWT token-based authentication with 24-hour expiration
+- ✅ "Remember me" option extends session to 30 days
+- ✅ Failed login attempts show helpful error messages
+- ✅ Secure password handling with proper validation
 
 **Estimate**: Medium
 
