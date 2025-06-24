@@ -8,7 +8,7 @@ allowed-tools: ["Task", "Read", "Edit", "MultiEdit", "TodoWrite", "TodoRead", "B
 Execute systematic story-by-story development following the documented approach. Use context7 mcp to ensure accuracy and quality
 
 ## Story-by-Story Development Approach
-Complete one full user story at a time following ROADMAP.md V1.0 priority order. Each story represents a complete user-facing feature with clear acceptance criteria.
+Complete one full user story at a time following docs/planning/ROADMAP.md V1.0 priority order. Each story represents a complete user-facing feature with clear acceptance criteria.
 
 ## Multi-Agent Task Execution
 - Use subagents for any steps that can be parallelized
@@ -17,22 +17,22 @@ Complete one full user story at a time following ROADMAP.md V1.0 priority order.
 
 ## Progress Tracking Requirements
 Update all project files as work progresses:
-- **TASKS.md**: Mark individual tasks as in_progress → completed
-- **STORIES.md**: Update story status and progress counters
+- **docs/planning/TASKS.md**: Mark individual tasks as in_progress → completed
+- **docs/planning/STORIES.md**: Update story status and progress counters
 - **EPICS.md**: Update epic completion percentages
-- **ROADMAP.md**: Update release progress and completion status
+- **docs/planning/ROADMAP.md**: Update release progress and completion status
 
 ## Execution Steps
-1. **Story Selection**: Read ROADMAP.md to identify next V1.0 priority story
-2. **Task Review**: Review technical tasks in TASKS.md for the selected story
-3. **Understand Context**: Review STORIES.md and EPICS.md to have a better understanding of the tasks
+1. **Story Selection**: Read docs/planning/ROADMAP.md to identify next V1.0 priority story
+2. **Task Review**: Review technical tasks in docs/planning/TASKS.md for the selected story
+3. **Understand Context**: Review docs/planning/STORIES.md and docs/planning/EPICS.md to have a better understanding of the tasks
 4. **Parallel Execution**: Launch multiple agents for concurrent work on story tasks
 5. **Progress Updates**: Continuously update task/story status in project files
 6. **Story Completion**: Verify all acceptance criteria met before moving to next story
 
 ## Quality Gates
 - Run `npm run lint` and `npm run type-check` after each story completion
-- Verify all acceptance criteria in STORIES.md before marking story complete
+- Verify all acceptance criteria in docs/planning/STORIES.md before marking story complete
 - Maintain working application state throughout development
 - Test core user flows end-to-end before story sign-off
 
@@ -51,7 +51,7 @@ Begin with foundational stories that other work depends on:
 - Authentication stories (AU-01, AU-02) for security foundation
 - Testing Infrastructure (PF-01)
 - Core Recipe Management (RM-01, RM-04) for basic CRUD operations
-- Follow dependency chains outlined in TASKS.md
+- Follow dependency chains outlined in docs/planning/TASKS.md
 
 ---
 

@@ -76,8 +76,11 @@ npm run lint
 ## Planning Documents
 
 - **[PHASES.md](./PHASES.md)** - Development phases and progress tracking
-- **[EPICS.md](./EPICS.md)** - High-level feature specifications and requirements
-- **[STORIES.md](./STORIES.md)** - User stories with acceptance criteria
+- **[EPICS.md](./docs/planning/EPICS.md)** - High-level feature specifications and requirements
+- **[ROADMAP.md](./docs/planning/ROADMAP.md)** - Release planning and story prioritization
+- **[STORIES.md](./docs/planning/STORIES.md)** - User stories with acceptance criteria
+- **[TASKS.md](./docs/planning/TASKS.md)** - Technical task breakdown for implementation
+- **[TESTING.md](./docs/testing/TESTING.md)** - Testing strategy and patterns
 
 ## Current Phase
 

@@ -4,7 +4,7 @@ This directory contains comprehensive testing documentation for the Gourmoire pr
 
 ## 📚 Documentation Files
 
-### [TESTING.md](../../TESTING.md)
+### [TESTING.md](./TESTING.md)
 **Main testing guide** - Comprehensive overview of testing strategy, patterns, and best practices.
 - Testing stack overview (Vitest, React Testing Library, MSW)
 - Test organization and directory structure
@@ -42,7 +42,7 @@ This directory contains comprehensive testing documentation for the Gourmoire pr
 ## 🚀 Quick Start
 
 ### For New Developers
-1. **Read** [TESTING.md](../../TESTING.md) for overall strategy
+1. **Read** [TESTING.md](./TESTING.md) for overall strategy
 2. **Set up** development environment with test running
 3. **Review** example tests to understand patterns
 4. **Follow** [DEVELOPMENT_WORKFLOW.md](./DEVELOPMENT_WORKFLOW.md) for daily practices

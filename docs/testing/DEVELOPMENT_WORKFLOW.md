@@ -455,7 +455,7 @@ alias tb="npm run test:backend"
 
 ### When Tests Are Unclear
 1. **Check existing examples** in the codebase
-2. **Review documentation** in `TESTING.md`
+2. **Review documentation** in `./TESTING.md`
 3. **Look at similar test patterns** in the project
 4. **Ask for clarification** in code reviews
 5. **Refer to testing library documentation**

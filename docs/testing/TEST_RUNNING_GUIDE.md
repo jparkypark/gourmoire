@@ -642,6 +642,6 @@ Coverage report from v8:
 5. **Integrate testing into your development routine**
 
 For more specific debugging scenarios, refer to:
-- [TESTING.md](../TESTING.md) - General testing patterns
+- [TESTING.md](./TESTING.md) - General testing patterns
 - [Vitest Documentation](https://vitest.dev/guide/debugging.html) - Official debugging guide
 - [React Testing Library](https://testing-library.com/docs/queries/about/#debugging) - Frontend debugging
