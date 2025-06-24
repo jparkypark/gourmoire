@@ -9,7 +9,11 @@
     "build": "wrangler build",
     "deploy": "wrangler deploy",
     "lint": "eslint src --ext .ts,.js",
-    "type-check": "tsc --noEmit"
+    "type-check": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:ui": "vitest --ui",
+    "test:coverage": "vitest run --coverage"
   },
   "dependencies": {
     "@cloudflare/workers-types": "^4.20240529.0",
@@ -18,10 +22,14 @@
     "zod": "^3.25.67"
   },
   "devDependencies": {
+    "@cloudflare/vitest-pool-workers": "^0.8.44",
     "@typescript-eslint/eslint-plugin": "^7.18.0",
     "@typescript-eslint/parser": "^7.18.0",
+    "@vitest/ui": "^3.2.4",
     "eslint": "^8.57.0",
+    "miniflare": "^3.20250408.2",
     "typescript": "^5.8.3",
+    "vitest": "^3.2.4",
     "wrangler": "^3.60.3"
   }
 }

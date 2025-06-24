@@ -5,7 +5,7 @@ allowed-tools: ["Task", "Read", "Edit", "MultiEdit", "TodoWrite", "TodoRead", "B
 
 # Gourmoire Development Workflow
 
-Execute systematic story-by-story development following the documented approach.
+Execute systematic story-by-story development following the documented approach. Use context7 mcp to ensure accuracy and quality
 
 ## Story-by-Story Development Approach
 Complete one full user story at a time following ROADMAP.md V1.0 priority order. Each story represents a complete user-facing feature with clear acceptance criteria.
@@ -49,6 +49,7 @@ After validating story completion, provide a comprehensive summary including:
 ## Starting Priority
 Begin with foundational stories that other work depends on:
 - Authentication stories (AU-01, AU-02) for security foundation
+- Testing Infrastructure (PF-01)
 - Core Recipe Management (RM-01, RM-04) for basic CRUD operations
 - Follow dependency chains outlined in TASKS.md
 

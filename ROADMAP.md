@@ -8,6 +8,7 @@ A personal recipe management web application - development roadmap and release p
 **Timeline**: Personal project - no fixed deadlines
 
 ### Stories to Complete (9 stories)
+- **PF-01**: Testing Infrastructure
 - **RM-01**: Add New Recipe
 - **RM-02**: Edit Recipe Details  
 - **RM-04**: View Recipe Details
@@ -16,13 +17,12 @@ A personal recipe management web application - development roadmap and release p
 - **SD-04**: Browse and Sort Recipes
 - **DU-02**: Recent Recipes Dashboard
 - **UI-02**: Navigation System
-- **PF-01**: Testing Infrastructure ⭐ **Parallel Development**
 
 ### Completed Stories (2 stories)
 - ✅ **AU-01**: User Login
 - ✅ **AU-02**: Protected Routes
 
-**Scope**: ~54 remaining tasks across all technical areas (12 tasks completed, 2 retroactive testing tasks added)
+**Scope**: ~53 remaining tasks across all technical areas (13 tasks completed, 2 retroactive testing tasks added)
 **User Value**: "I can digitally organize and find my recipes with confidence in code quality"
 
 ### What V1.0 Delivers
