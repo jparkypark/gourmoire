@@ -4,10 +4,10 @@
 
 **Current Release Progress**: See **[ROADMAP.md](./ROADMAP.md)** for V1.0 vs V1.1 story breakdown.
 
-**Overall Progress**: 1/15 total stories completed (7%)
+**Overall Progress**: 2/15 total stories completed (13%)
 
 ```
-████████████████████████████████████████████████████████████ 7%
+████████████████████████████████████████████████████████████ 13%
 0    10    20    30    40    50    60    70    80    90    100
 ```
 
@@ -244,15 +244,15 @@ This document contains all user stories for Gourmoire V1, organized by epic. Eac
 
 **Estimate**: Medium
 
-### AU-02: Protected Routes
-**Epic**: Authentication  
+### ✅ AU-02: Protected Routes
+**Status**: ✅ Completed | **Epic**: Authentication  
 **Story**: As a user, I want my recipes to be private and secure  
-**Acceptance Criteria**:
-- All recipe management features require authentication
-- Unauthenticated users are redirected to login
-- Session expiration triggers automatic logout
-- Secure token storage and refresh handling
-- Clear indication of authentication status
+**Acceptance Criteria**: ✅ All criteria met
+- ✅ All recipe management features require authentication
+- ✅ Unauthenticated users are redirected to login
+- ✅ Session expiration triggers automatic logout
+- ✅ Secure token storage and refresh handling
+- ✅ Clear indication of authentication status
 
 **Estimate**: Small
 

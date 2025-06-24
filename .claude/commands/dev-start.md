@@ -11,11 +11,9 @@ Execute systematic story-by-story development following the documented approach.
 Complete one full user story at a time following ROADMAP.md V1.0 priority order. Each story represents a complete user-facing feature with clear acceptance criteria.
 
 ## Multi-Agent Task Execution
-Use subagents for parallel work on different technical areas:
-- **Database setup agent**: Schema design, migrations, CRUD operations
-- **API development agent**: Endpoints, validation, business logic  
-- **UI component agent**: React components, forms, integration
-- **Testing/validation agent**: End-to-end testing, acceptance criteria verification
+- Use subagents for any steps that can be parallelized
+- For each subagent deployed, create a dedicated supervisor subagent to validate their work
+- Ensure all subagent outputs are integrated and tested
 
 ## Progress Tracking Requirements
 Update all project files as work progresses:
@@ -27,9 +25,10 @@ Update all project files as work progresses:
 ## Execution Steps
 1. **Story Selection**: Read ROADMAP.md to identify next V1.0 priority story
 2. **Task Review**: Review technical tasks in TASKS.md for the selected story
-3. **Parallel Execution**: Launch multiple agents for concurrent work on story tasks
-4. **Progress Updates**: Continuously update task/story status in project files
-5. **Story Completion**: Verify all acceptance criteria met before moving to next story
+3. **Understand Context**: Review STORIES.md and EPICS.md to have a better understanding of the tasks
+4. **Parallel Execution**: Launch multiple agents for concurrent work on story tasks
+5. **Progress Updates**: Continuously update task/story status in project files
+6. **Story Completion**: Verify all acceptance criteria met before moving to next story
 
 ## Quality Gates
 - Run `npm run lint` and `npm run type-check` after each story completion

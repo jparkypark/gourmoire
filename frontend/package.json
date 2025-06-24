@@ -16,6 +16,7 @@
     "@mantine/form": "^8.1.1",
     "@mantine/hooks": "^8.1.1",
     "@mantine/notifications": "^8.1.1",
+    "@tabler/icons-react": "^3.34.0",
     "@types/react-router-dom": "^5.3.3",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",

@@ -3,8 +3,7 @@ import { MantineProvider } from '@mantine/core';
 import { Notifications } from '@mantine/notifications';
 import AuthProvider from './contexts/AuthContext';
 import { ProtectedRoute } from './components/ProtectedRoute';
-import { LoginPage } from './pages/LoginPage';
-import { DashboardPage } from './pages/DashboardPage';
+import { LoginPage, DashboardPage, RecipeListPage, RecipeFormPage } from './pages';
 
 // Import Mantine styles
 import '@mantine/core/styles.css';
@@ -26,6 +25,32 @@ function App() {
               element={
                 <ProtectedRoute>
                   <DashboardPage />
+                </ProtectedRoute>
+              } 
+            />
+            
+            {/* Recipe routes */}
+            <Route 
+              path="/recipes" 
+              element={
+                <ProtectedRoute>
+                  <RecipeListPage />
+                </ProtectedRoute>
+              } 
+            />
+            <Route 
+              path="/recipes/new" 
+              element={
+                <ProtectedRoute>
+                  <RecipeFormPage />
+                </ProtectedRoute>
+              } 
+            />
+            <Route 
+              path="/recipes/:id/edit" 
+              element={
+                <ProtectedRoute>
+                  <RecipeFormPage />
                 </ProtectedRoute>
               } 
             />

@@ -151,8 +151,7 @@ export const LoginForm: React.FC<LoginFormProps> = ({ onSuccess, onError }) => {
                 td="underline"
                 onClick={(e) => {
                   e.preventDefault();
-                  // TODO: Implement forgot password functionality
-                  console.log('Forgot password clicked');
+                  // Forgot password functionality will be implemented in future release
                 }}
               >
                 Forgot password?
@@ -180,8 +179,7 @@ export const LoginForm: React.FC<LoginFormProps> = ({ onSuccess, onError }) => {
             td="underline"
             onClick={(e) => {
               e.preventDefault();
-              // TODO: Navigate to registration page
-              console.log('Create account clicked');
+              // Registration page will be implemented in future release
             }}
           >
             Create one here

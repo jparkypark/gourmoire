@@ -4,10 +4,10 @@
 
 **Current Release Tasks**: See **[ROADMAP.md](./ROADMAP.md)** for V1.0 vs V1.1 story breakdown.
 
-**Overall Progress**: 8/78 total tasks completed (10%)
+**Overall Progress**: 12/78 total tasks completed (15%)
 
 ```
-██████████████████████████████████████████████████████████████ 10%
+██████████████████████████████████████████████████████████████ 15%
 0    10    20    30    40    50    60    70    80    90    100
 ```
 
@@ -851,51 +851,51 @@ This document breaks down user stories into specific technical tasks using our 4
   - Remember me functionality works
 - **Estimate**: S
 
-### 📋 Story: AU-02 (Protected Routes)
-**Status**: 📋 Not Started | **Progress**: 0/4 tasks completed
+### ✅ Story: AU-02 (Protected Routes)
+**Status**: ✅ Completed | **Progress**: 4/4 tasks completed
 
-**AU-02-UI-01**: Create ProtectedRoute component
+**AU-02-UI-01**: Create ProtectedRoute component ✅ COMPLETED
 - **Story**: AU-02 - Protected Routes
 - **Description**: Build component to protect authenticated routes
 - **Dependencies**: AU-01-UI-03
 - **Acceptance Criteria**: 
-  - Redirects unauthenticated users to login
-  - Shows loading state during auth check
-  - Handles token expiration gracefully
-  - Clear authentication status indication
+  - ✅ Redirects unauthenticated users to login
+  - ✅ Shows loading state during auth check
+  - ✅ Handles token expiration gracefully
+  - ✅ Clear authentication status indication
 - **Estimate**: S
 
-**AU-02-UI-02**: Implement route protection
+**AU-02-UI-02**: Implement route protection ✅ COMPLETED
 - **Story**: AU-02 - Protected Routes
 - **Description**: Protect all recipe management routes
 - **Dependencies**: AU-02-UI-01
 - **Acceptance Criteria**: 
-  - All recipe CRUD routes require authentication
-  - Dashboard and recipe management protected
-  - Login page accessible without auth
-  - Proper redirects after login
+  - ✅ All recipe CRUD routes require authentication
+  - ✅ Dashboard and recipe management protected
+  - ✅ Login page accessible without auth
+  - ✅ Proper redirects after login
 - **Estimate**: S
 
-**AU-02-UI-03**: Add logout functionality
+**AU-02-UI-03**: Add logout functionality ✅ COMPLETED
 - **Story**: AU-02 - Protected Routes
 - **Description**: Implement logout functionality throughout app
 - **Dependencies**: AU-01-API-01, UI-02-UI-01
 - **Acceptance Criteria**: 
-  - Logout option in user menu
-  - Clears authentication state and tokens
-  - Redirects to login page after logout
-  - Handles automatic logout on token expiration
+  - ✅ Logout option in user menu
+  - ✅ Clears authentication state and tokens
+  - ✅ Redirects to login page after logout
+  - ✅ Handles automatic logout on token expiration
 - **Estimate**: S
 
-**AU-02-TEST-01**: Protected routes testing
+**AU-02-TEST-01**: Protected routes testing ✅ COMPLETED
 - **Story**: AU-02 - Protected Routes
 - **Description**: Test route protection functionality
 - **Dependencies**: AU-02-UI-03
 - **Acceptance Criteria**: 
-  - Unauthenticated access properly blocked
-  - Authentication redirects work correctly
-  - Logout clears session properly
-  - Token expiration handled gracefully
+  - ✅ Unauthenticated access properly blocked
+  - ✅ Authentication redirects work correctly
+  - ✅ Logout clears session properly
+  - ✅ Token expiration handled gracefully
 - **Estimate**: S
 
 ---

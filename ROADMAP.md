@@ -7,19 +7,21 @@ A personal recipe management web application - development roadmap and release p
 **Goal**: Core Recipe Management - A fully functional recipe app
 **Timeline**: Personal project - no fixed deadlines
 
-### Stories to Complete (10 stories)
+### Stories to Complete (8 stories)
 - **RM-01**: Add New Recipe
 - **RM-02**: Edit Recipe Details  
 - **RM-04**: View Recipe Details
 - **SD-01**: Tag Recipes
 - **SD-02**: Search Recipes
 - **SD-04**: Browse and Sort Recipes
-- **AU-01**: User Login
-- **AU-02**: Protected Routes
 - **DU-02**: Recent Recipes Dashboard
 - **UI-02**: Navigation System
 
-**Scope**: ~48 tasks across all technical areas
+### Completed Stories (2 stories)
+- ✅ **AU-01**: User Login
+- ✅ **AU-02**: Protected Routes
+
+**Scope**: ~44 remaining tasks across all technical areas (4 tasks completed)
 **User Value**: "I can digitally organize and find my recipes"
 
 ### What V1.0 Delivers
@@ -95,7 +97,7 @@ A personal recipe management web application - development roadmap and release p
 - [ ] User can create, edit, and view recipes
 - [ ] User can tag and search recipes
 - [ ] User can browse recipe collection
-- [ ] Single-user authentication protects data
+- [x] Single-user authentication protects data
 - [ ] Clean navigation and dashboard
 
 ### V1.1 - Enhanced Experience  

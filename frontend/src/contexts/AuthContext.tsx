@@ -2,7 +2,7 @@ import React, { createContext, useContext, useReducer, useEffect, useCallback } 
 import type { AuthState, User, LoginRequest, AuthResponse, RefreshTokenResponse } from '../../../shared/types';
 
 // Token storage keys
-const TOKEN_KEY = 'gourmoire_token';
+const ACCESS_TOKEN_KEY = 'gourmoire_access_token';
 const REFRESH_TOKEN_KEY = 'gourmoire_refresh_token';
 const USER_KEY = 'gourmoire_user';
 const REMEMBER_ME_KEY = 'gourmoire_remember_me';
@@ -10,12 +10,12 @@ const REMEMBER_ME_KEY = 'gourmoire_remember_me';
 // Auth actions
 type AuthAction =
   | { type: 'LOGIN_START' }
-  | { type: 'LOGIN_SUCCESS'; payload: { user: User; token: string; refreshToken: string } }
+  | { type: 'LOGIN_SUCCESS'; payload: { user: User; accessToken: string; refreshToken: string } }
   | { type: 'LOGIN_FAILURE' }
   | { type: 'LOGOUT' }
-  | { type: 'REFRESH_TOKEN_SUCCESS'; payload: { token: string; refreshToken: string } }
+  | { type: 'REFRESH_TOKEN_SUCCESS'; payload: { accessToken: string; refreshToken: string } }
   | { type: 'SET_LOADING'; payload: boolean }
-  | { type: 'RESTORE_SESSION'; payload: { user: User; token: string; refreshToken: string } };
+  | { type: 'RESTORE_SESSION'; payload: { user: User; accessToken: string; refreshToken: string } };
 
 // Auth context type
 interface AuthContextType {
@@ -29,7 +29,7 @@ interface AuthContextType {
 // Initial state
 const initialState: AuthState = {
   user: null,
-  token: null,
+  accessToken: null,
   refreshToken: null,
   isAuthenticated: false,
   isLoading: true, // Start with loading true to check for existing session
@@ -47,7 +47,7 @@ function authReducer(state: AuthState, action: AuthAction): AuthState {
       return {
         ...state,
         user: action.payload.user,
-        token: action.payload.token,
+        accessToken: action.payload.accessToken,
         refreshToken: action.payload.refreshToken,
         isAuthenticated: true,
         isLoading: false,
@@ -56,7 +56,7 @@ function authReducer(state: AuthState, action: AuthAction): AuthState {
       return {
         ...state,
         user: null,
-        token: null,
+        accessToken: null,
         refreshToken: null,
         isAuthenticated: false,
         isLoading: false,
@@ -65,7 +65,7 @@ function authReducer(state: AuthState, action: AuthAction): AuthState {
       return {
         ...state,
         user: null,
-        token: null,
+        accessToken: null,
         refreshToken: null,
         isAuthenticated: false,
         isLoading: false,
@@ -73,7 +73,7 @@ function authReducer(state: AuthState, action: AuthAction): AuthState {
     case 'REFRESH_TOKEN_SUCCESS':
       return {
         ...state,
-        token: action.payload.token,
+        accessToken: action.payload.accessToken,
         refreshToken: action.payload.refreshToken,
         isLoading: false,
       };
@@ -86,7 +86,7 @@ function authReducer(state: AuthState, action: AuthAction): AuthState {
       return {
         ...state,
         user: action.payload.user,
-        token: action.payload.token,
+        accessToken: action.payload.accessToken,
         refreshToken: action.payload.refreshToken,
         isAuthenticated: true,
         isLoading: false,
@@ -111,40 +111,79 @@ const isTokenExpired = (token: string): boolean => {
 };
 
 const getStoredTokens = () => {
-  const token = localStorage.getItem(TOKEN_KEY);
+  const accessToken = localStorage.getItem(ACCESS_TOKEN_KEY);
   const refreshToken = localStorage.getItem(REFRESH_TOKEN_KEY);
   const userStr = localStorage.getItem(USER_KEY);
   const rememberMe = localStorage.getItem(REMEMBER_ME_KEY) === 'true';
 
+  // If rememberMe is false, try session storage first
   if (!rememberMe) {
-    // If not remembered, check session storage or clear
-    return { token: null, refreshToken: null, user: null };
+    const sessionAccessToken = sessionStorage.getItem(ACCESS_TOKEN_KEY);
+    const sessionRefreshToken = sessionStorage.getItem(REFRESH_TOKEN_KEY);
+    const sessionUserStr = sessionStorage.getItem(USER_KEY);
+    
+    if (sessionAccessToken && sessionRefreshToken && sessionUserStr) {
+      try {
+        const user = JSON.parse(sessionUserStr);
+        return { accessToken: sessionAccessToken, refreshToken: sessionRefreshToken, user };
+      } catch {
+        return { accessToken: null, refreshToken: null, user: null };
+      }
+    }
+    
+    // Fall back to localStorage for current session
+    if (accessToken && refreshToken && userStr) {
+      try {
+        const user = JSON.parse(userStr);
+        return { accessToken, refreshToken, user };
+      } catch {
+        return { accessToken: null, refreshToken: null, user: null };
+      }
+    }
+    
+    return { accessToken: null, refreshToken: null, user: null };
   }
 
-  if (token && refreshToken && userStr) {
+  if (accessToken && refreshToken && userStr) {
     try {
       const user = JSON.parse(userStr);
-      return { token, refreshToken, user };
+      return { accessToken, refreshToken, user };
     } catch {
-      return { token: null, refreshToken: null, user: null };
+      return { accessToken: null, refreshToken: null, user: null };
     }
   }
 
-  return { token: null, refreshToken: null, user: null };
+  return { accessToken: null, refreshToken: null, user: null };
 };
 
 const clearStoredTokens = () => {
-  localStorage.removeItem(TOKEN_KEY);
+  localStorage.removeItem(ACCESS_TOKEN_KEY);
   localStorage.removeItem(REFRESH_TOKEN_KEY);
   localStorage.removeItem(USER_KEY);
   localStorage.removeItem(REMEMBER_ME_KEY);
+  sessionStorage.removeItem(ACCESS_TOKEN_KEY);
+  sessionStorage.removeItem(REFRESH_TOKEN_KEY);
+  sessionStorage.removeItem(USER_KEY);
 };
 
-const storeTokens = (token: string, refreshToken: string, user: User, rememberMe: boolean) => {
-  localStorage.setItem(TOKEN_KEY, token);
-  localStorage.setItem(REFRESH_TOKEN_KEY, refreshToken);
-  localStorage.setItem(USER_KEY, JSON.stringify(user));
-  localStorage.setItem(REMEMBER_ME_KEY, rememberMe.toString());
+const storeTokens = (accessToken: string, refreshToken: string, user: User, rememberMe: boolean) => {
+  if (rememberMe) {
+    // Store in localStorage for persistence across browser sessions
+    localStorage.setItem(ACCESS_TOKEN_KEY, accessToken);
+    localStorage.setItem(REFRESH_TOKEN_KEY, refreshToken);
+    localStorage.setItem(USER_KEY, JSON.stringify(user));
+    localStorage.setItem(REMEMBER_ME_KEY, rememberMe.toString());
+  } else {
+    // Store in sessionStorage for current session only
+    sessionStorage.setItem(ACCESS_TOKEN_KEY, accessToken);
+    sessionStorage.setItem(REFRESH_TOKEN_KEY, refreshToken);
+    sessionStorage.setItem(USER_KEY, JSON.stringify(user));
+    // Also store in localStorage temporarily for immediate access
+    localStorage.setItem(ACCESS_TOKEN_KEY, accessToken);
+    localStorage.setItem(REFRESH_TOKEN_KEY, refreshToken);
+    localStorage.setItem(USER_KEY, JSON.stringify(user));
+    localStorage.setItem(REMEMBER_ME_KEY, 'false');
+  }
 };
 
 // Auth provider component
@@ -179,14 +218,14 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
       const data: RefreshTokenResponse = await response.json();
 
-      if (data.success && data.token && data.refreshToken) {
+      if (data.success && data.accessToken && data.refreshToken) {
         const { user } = getStoredTokens();
         if (user) {
-          storeTokens(data.token, data.refreshToken, user, true);
+          storeTokens(data.accessToken, data.refreshToken, user, true);
           dispatch({
             type: 'REFRESH_TOKEN_SUCCESS',
             payload: {
-              token: data.token,
+              accessToken: data.accessToken,
               refreshToken: data.refreshToken,
             },
           });
@@ -218,15 +257,15 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
       const data: AuthResponse = await response.json();
 
-      if (data.success && data.user && data.token && data.refreshToken) {
+      if (data.success && data.user && data.accessToken && data.refreshToken) {
         // Store tokens and user data
-        storeTokens(data.token, data.refreshToken, data.user, credentials.rememberMe || false);
+        storeTokens(data.accessToken, data.refreshToken, data.user, credentials.rememberMe || false);
         
         dispatch({
           type: 'LOGIN_SUCCESS',
           payload: {
             user: data.user,
-            token: data.token,
+            accessToken: data.accessToken,
             refreshToken: data.refreshToken,
           },
         });
@@ -248,10 +287,10 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   // Restore session on app start
   useEffect(() => {
     const restoreSession = async () => {
-      const { token, refreshToken, user } = getStoredTokens();
+      const { accessToken, refreshToken, user } = getStoredTokens();
       
-      if (token && refreshToken && user) {
-        if (isTokenExpired(token)) {
+      if (accessToken && refreshToken && user) {
+        if (isTokenExpired(accessToken)) {
           // Try to refresh the token
           const refreshed = await refreshTokenFunction();
           if (!refreshed) {
@@ -261,7 +300,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
           // Token is still valid
           dispatch({
             type: 'RESTORE_SESSION',
-            payload: { user, token, refreshToken }
+            payload: { user, accessToken, refreshToken }
           });
         }
       } else {
@@ -274,9 +313,9 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
   // Auto-refresh token before expiration
   useEffect(() => {
-    if (state.token && state.isAuthenticated) {
+    if (state.accessToken && state.isAuthenticated) {
       const checkTokenExpiration = () => {
-        if (isTokenExpired(state.token!)) {
+        if (isTokenExpired(state.accessToken!)) {
           refreshTokenFunction();
         }
       };
@@ -286,7 +325,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       
       return () => clearInterval(interval);
     }
-  }, [state.token, state.isAuthenticated, refreshTokenFunction]);
+  }, [state.accessToken, state.isAuthenticated, refreshTokenFunction]);
 
   const value: AuthContextType = {
     state,
